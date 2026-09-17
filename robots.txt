@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zori-shop.ro/sitemap.xml
