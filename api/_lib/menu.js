@@ -89,10 +89,17 @@ function applyToIndex(indexHtml, menu) {
   return html;
 }
 
+// Control characters and bidi overrides (which can visually reverse text) never belong in a menu.
+const INVISIBLE = [[0x00, 0x1f], [0x7f, 0x9f], [0x200b, 0x200f], [0x202a, 0x202e], [0x2066, 0x2069], [0xfeff, 0xfeff]];
+const stripInvisible = (s) =>
+  Array.from(s, (ch) => (INVISIBLE.some(([a, b]) => ch.codePointAt(0) >= a && ch.codePointAt(0) <= b) ? ' ' : ch)).join('');
+const MAX_SECTIONS = 40;
+const MAX_ITEMS_PER_SECTION = 150;
+
 function str(v, max, field, errors, required) {
   if (v == null) v = '';
   if (typeof v !== 'string') { errors.push(`${field}: valoare invalida`); return ''; }
-  v = v.trim();
+  v = stripInvisible(v).replace(/ {2,}/g, ' ').trim();
   if (required && !v) errors.push(`${field}: lipseste`);
   if (v.length > max) errors.push(`${field}: prea lung (maxim ${max} caractere)`);
   return v;
@@ -108,10 +115,16 @@ function validate(input, current) {
     const cat = input.categories.find((c) => c && c.id === base.id);
     if (!cat || !Array.isArray(cat.sections)) { errors.push(`Lipseste categoria ${base.name}`); continue; }
     const promos = new Map(base.sections.filter((s) => s.promoHtml).map((s) => [s.title, s.promoHtml]));
+    if (cat.sections.length > MAX_SECTIONS) { errors.push(`${base.name}: prea multe sectiuni (maxim ${MAX_SECTIONS})`); continue; }
+    if (cat.sections.some((s) => !s || (Array.isArray(s.items) && s.items.length > MAX_ITEMS_PER_SECTION))) {
+      errors.push(`${base.name}: o sectiune are prea multe produse (maxim ${MAX_ITEMS_PER_SECTION})`);
+      continue;
+    }
     const sections = cat.sections.map((sec, si) => {
       const title = str(sec.title, LIMITS.title, `${base.name} / sectiunea ${si + 1}`, errors, false) || null;
-      const items = (Array.isArray(sec.items) ? sec.items : []).map((it, ii) => {
-        const where = `${base.name} / ${(it && it.name) || 'produsul ' + (ii + 1)}`;
+      const items = (Array.isArray(sec.items) ? sec.items : []).map((raw, ii) => {
+        const it = raw && typeof raw === 'object' ? raw : {};
+        const where = `${base.name} / ${(typeof it.name === 'string' && it.name.trim()) || 'produsul ' + (ii + 1)}`;
         const price = str(it.price, 10, `${where} / pret`, errors, true);
         if (price && !PRICE_RE.test(price)) errors.push(`${where} / pret: scrie doar cifre, de ex. 9,50`);
         return {
