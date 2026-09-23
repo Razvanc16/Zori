@@ -56,18 +56,6 @@
               "fat": "0.99g",
               "carbs": "50g",
               "allergens": "Contine gluten, susan"
-            },
-            {
-              "name": "Paine facuta din meniul ADMIN TEST",
-              "price": "500",
-              "qty": "666",
-              "ingredients": "",
-              "kcal": "",
-              "per": "",
-              "protein": "",
-              "fat": "",
-              "carbs": "",
-              "allergens": ""
             }
           ]
         }
