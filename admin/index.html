@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin meniu · Zori</title>
+<link rel="icon" type="image/jpeg" href="/logo1.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #A8381A;
+    --terracotta-deep: #7E2A13;
+    --cream: #F3E7D3;
+    --paper: #FBF6EE;
+    --ink: #2B1B12;
+    --ink-soft: #6B5847;
+    --rule: rgba(43,27,18,0.16);
+    --ok: #2F6B3A;
+    --err: #A8381A;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--cream); color: var(--ink);
+    font-family: 'Karla', -apple-system, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px 120px; }
+
+  /* login */
+  .login { max-width: 360px; margin: 14vh auto 0; padding: 0 16px; }
+  .login h1 { font-family: 'Questrial', sans-serif; font-weight: 400; font-size: 30px; margin: 0 0 4px; }
+  .login p { color: var(--ink-soft); margin: 0 0 22px; }
+  .login form { display: grid; gap: 10px; }
+
+  /* top bar */
+  .bar {
+    position: sticky; top: 0; z-index: 10; background: var(--cream);
+    border-bottom: 1px solid var(--rule); margin: 0 -16px; padding: 12px 16px 0;
+  }
+  .bar-top { display: flex; align-items: center; gap: 12px; }
+  .bar h1 { font-family: 'Questrial', sans-serif; font-weight: 400; font-size: 22px; margin: 0; flex: 1; }
+  .bar h1 a { color: var(--ink-soft); font-size: 13px; font-family: 'Karla', sans-serif; margin-left: 8px; }
+  .tabs { display: flex; gap: 2px; overflow-x: auto; margin-top: 10px; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    border: 0; background: none; padding: 10px 14px; cursor: pointer; white-space: nowrap;
+    font-weight: 600; color: var(--ink-soft); border-bottom: 3px solid transparent;
+  }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--terracotta); }
+  .tab .n { font-weight: 400; font-size: 12px; margin-left: 4px; }
+
+  .status { font-size: 13px; padding: 8px 0 0; min-height: 28px; color: var(--ink-soft); }
+  .status.ok { color: var(--ok); }
+  .status.err { color: var(--err); white-space: pre-line; }
+
+  /* controls */
+  .btn {
+    border: 1px solid var(--rule); background: var(--paper); border-radius: 8px;
+    padding: 9px 14px; cursor: pointer; font-weight: 600;
+  }
+  .btn:hover { border-color: var(--ink-soft); }
+  .btn.primary { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+  .btn.primary:hover { background: var(--terracotta-deep); }
+  .btn[disabled] { opacity: .5; cursor: default; }
+  .btn.ghost { background: none; border-color: transparent; color: var(--ink-soft); font-weight: 500; padding: 6px 8px; }
+  .btn.ghost:hover { color: var(--ink); border-color: var(--rule); }
+  .btn.danger { color: var(--err); }
+  .btn.add { width: 100%; border-style: dashed; background: none; color: var(--ink-soft); margin-top: 8px; }
+
+  label.f { display: grid; gap: 3px; font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+  input[type=text], input[type=password], textarea {
+    width: 100%; background: #fff; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 8px 10px; font-size: 15px; font-weight: 400; color: var(--ink);
+  }
+  textarea { resize: vertical; min-height: 64px; }
+  input.bad { border-color: var(--err); background: #FFF3F0; }
+
+  /* sections & products */
+  .section { margin-top: 26px; }
+  .section-head { display: flex; gap: 8px; align-items: end; margin-bottom: 8px; }
+  .section-head label { flex: 1; }
+  .section-head input { font-weight: 700; font-size: 16px; }
+  .promo-note { font-size: 12px; color: var(--ink-soft); margin: 0 0 8px; font-style: italic; }
+
+  .product { background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 12px; margin-top: 8px; }
+  .product-main { display: grid; grid-template-columns: 1fr 96px 110px; gap: 8px; }
+  .product-actions { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 6px; align-items: center; }
+  .product-actions .spacer { flex: 1; }
+  .btn.toggle { color: var(--terracotta-deep); font-weight: 600; text-align: left; padding-left: 0; order: 2; flex-basis: 100%; }
+  .details { display: grid; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--rule); }
+  .nutri { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .hint { font-size: 12px; color: var(--ink-soft); font-weight: 400; }
+  .confirm { font-size: 13px; color: var(--err); font-weight: 600; }
+
+  @media (max-width: 560px) {
+    .product-main { grid-template-columns: 1fr 1fr; }
+    .product-main .name { grid-column: 1 / -1; }
+    .nutri { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<section class="login" id="loginView">
+  <h1>Zori · Admin meniu</h1>
+  <p>Intra cu parola ca sa modifici produsele de pe site.</p>
+  <form id="loginForm">
+    <input type="password" id="password" placeholder="Parola" autocomplete="current-password" required>
+    <button class="btn primary" type="submit" id="loginBtn">Intra</button>
+    <div class="status err" id="loginStatus" role="alert"></div>
+  </form>
+</section>
+
+<div class="wrap" id="appView" hidden>
+  <div class="bar">
+    <div class="bar-top">
+      <h1>Meniu Zori<a href="/" target="_blank" rel="noopener">vezi site-ul</a></h1>
+      <button class="btn primary" id="saveBtn" type="button" disabled>Salveaza</button>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </div>
+  <div id="editor"></div>
+</div>
+
+<script>
+(function () {
+  var TOKEN_KEY = 'zori-admin-token';
+  var token = null;
+  try { token = sessionStorage.getItem(TOKEN_KEY); } catch (e) {}
+
+  var menu = null, baseSha = null, dirty = false, saving = false, current = 0;
+  var openDetails = {};
+
+  var $ = function (id) { return document.getElementById(id); };
+  var el = function (tag, attrs, children) {
+    var n = document.createElement(tag);
+    for (var k in (attrs || {})) {
+      if (k === 'text') n.textContent = attrs[k];
+      else if (k.slice(0, 2) === 'on') n.addEventListener(k.slice(2), attrs[k]);
+      else if (attrs[k] !== false && attrs[k] != null) n.setAttribute(k, attrs[k] === true ? '' : attrs[k]);
+    }
+    (children || []).forEach(function (c) { if (c) n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+    return n;
+  };
+
+  function api(method, path, body) {
+    return fetch(path, {
+      method: method,
+      headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { Authorization: 'Bearer ' + token } : {}),
+      body: body ? JSON.stringify(body) : undefined,
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        if (r.status === 401 && path !== '/api/login') { logout(data.error); throw new Error(data.error); }
+        if (!r.ok) { var e = new Error(data.error || 'Eroare ' + r.status); e.status = r.status; throw e; }
+        return data;
+      });
+    });
+  }
+
+  function setStatus(msg, kind) {
+    var s = $('status');
+    s.textContent = msg || '';
+    s.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  function markDirty() {
+    if (!dirty) { dirty = true; setStatus('Ai modificari nesalvate.'); }
+    $('saveBtn').disabled = saving;
+  }
+
+  // ---------- login ----------
+  $('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('loginBtn').disabled = true;
+    $('loginStatus').textContent = '';
+    api('POST', '/api/login', { password: $('password').value }).then(function (d) {
+      token = d.token;
+      try { sessionStorage.setItem(TOKEN_KEY, token); } catch (e) {}
+      $('password').value = '';
+      start();
+    }).catch(function (err) {
+      $('loginStatus').textContent = err.message;
+    }).then(function () { $('loginBtn').disabled = false; });
+  });
+
+  function logout(msg) {
+    token = null;
+    try { sessionStorage.removeItem(TOKEN_KEY); } catch (e) {}
+    $('appView').hidden = true;
+    $('loginView').hidden = false;
+    $('loginStatus').textContent = msg || '';
+  }
+
+  function start() {
+    $('loginView').hidden = true;
+    $('appView').hidden = false;
+    setStatus('Se incarca meniul...');
+    api('GET', '/api/menu').then(function (d) {
+      menu = d.menu; baseSha = d.sha; dirty = false;
+      $('saveBtn').disabled = true;
+      setStatus('');
+      renderTabs(); renderEditor();
+    }).catch(function (err) { if (token) setStatus(err.message, 'err'); });
+  }
+
+  // ---------- editor ----------
+  function count(cat) { return cat.sections.reduce(function (n, s) { return n + s.items.length; }, 0); }
+
+  function renderTabs() {
+    var t = $('tabs');
+    t.innerHTML = '';
+    menu.categories.forEach(function (cat, i) {
+      t.appendChild(el('button', {
+        class: 'tab', type: 'button', role: 'tab', 'aria-selected': i === current ? 'true' : 'false',
+        onclick: function () { current = i; renderTabs(); renderEditor(); window.scrollTo(0, 0); },
+      }, [cat.name, el('span', { class: 'n', text: String(count(cat)) })]));
+    });
+  }
+
+  function blankItem() {
+    return { name: '', price: '', qty: '', ingredients: '', kcal: '', per: '', protein: '', fat: '', carbs: '', allergens: '' };
+  }
+
+  function field(label, obj, key, opts) {
+    opts = opts || {};
+    var input = el(opts.multiline ? 'textarea' : 'input', {
+      type: opts.multiline ? null : 'text', placeholder: opts.placeholder || '',
+      inputmode: opts.inputmode || null, rows: opts.multiline ? 2 : null,
+    });
+    input.value = obj[key] || '';
+    input.addEventListener('input', function () {
+      obj[key] = input.value;
+      if (opts.validate) input.classList.toggle('bad', !opts.validate(input.value));
+      if (opts.onchange) opts.onchange();
+      markDirty();
+    });
+    if (opts.validate && obj[key]) input.classList.toggle('bad', !opts.validate(obj[key]));
+    return el('label', { class: 'f' + (opts.cls ? ' ' + opts.cls : '') }, [label, input, opts.hint ? el('span', { class: 'hint', text: opts.hint }) : null]);
+  }
+
+  var priceOk = function (v) { return /^\s*\d{1,4}([.,]\d{1,2})?\s*$/.test(v); };
+
+  // Cards and sections carry their data object as node.__obj so positions can be
+  // matched across a re-render (FLIP: measure, re-render, slide from the old spot).
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function positions() {
+    var m = new Map();
+    document.querySelectorAll('#editor .section, #editor .product').forEach(function (n) {
+      m.set(n.__obj, n.getBoundingClientRect().top);
+    });
+    return m;
+  }
+
+  function slideFrom(before, movedObj) {
+    var slid = new Set();
+    document.querySelectorAll('#editor .section, #editor .product').forEach(function (n) {
+      var old = before.get(n.__obj);
+      if (old == null) return;
+      var parent = n.parentElement.closest('.section');
+      if (parent && slid.has(parent)) return; // already travels with its section
+      var dy = old - n.getBoundingClientRect().top;
+      if (!dy) return;
+      slid.add(n);
+      if (reduceMotion || !n.animate) return;
+      if (n.__obj === movedObj) n.style.zIndex = 2;
+      n.style.position = 'relative';
+      n.animate([{ transform: 'translateY(' + dy + 'px)' }, { transform: 'none' }], {
+        duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)',
+      }).onfinish = function () { n.style.zIndex = ''; n.style.position = ''; };
+    });
+    var moved = Array.prototype.find.call(document.querySelectorAll('#editor .section, #editor .product'), function (n) { return n.__obj === movedObj; });
+    if (!moved) return null;
+    if (!reduceMotion && moved.animate && moved.classList.contains('product')) {
+      moved.animate([
+        { boxShadow: '0 0 0 2px rgba(168,56,26,.85), 0 8px 20px rgba(43,27,18,.18)' },
+        { boxShadow: '0 0 0 2px rgba(168,56,26,.85), 0 8px 20px rgba(43,27,18,.18)', offset: 0.6 },
+        { boxShadow: '0 0 0 0 rgba(168,56,26,0), 0 0 0 rgba(43,27,18,0)' },
+      ], { duration: 900, easing: 'ease-out' });
+    }
+    return moved;
+  }
+
+  function move(arr, i, d) {
+    var j = i + d;
+    if (j < 0 || j >= arr.length) return;
+    var before = positions();
+    var x = arr[i]; arr[i] = arr[j]; arr[j] = x;
+    markDirty(); renderEditor();
+    if (x.items) {
+      // a section can jump far; scroll so it stays under the finger and the others slide past it
+      var node = Array.prototype.find.call(document.querySelectorAll('#editor .section'), function (n) { return n.__obj === x; });
+      if (node) window.scrollBy(0, node.getBoundingClientRect().top - before.get(x));
+    }
+    var moved = slideFrom(before, x);
+    // keep keyboard focus on the arrow that was pressed, or its twin once it hits the end
+    if (moved) {
+      var btns = moved.querySelectorAll(':scope > .product-actions [data-dir], :scope > .section-head [data-dir]');
+      var want = Array.prototype.find.call(btns, function (b) { return b.dataset.dir === String(d) && !b.disabled; }) ||
+        Array.prototype.find.call(btns, function (b) { return !b.disabled; });
+      if (want) want.focus({ preventScroll: true });
+    }
+  }
+
+  function productCard(cat, sec, i) {
+    var item = sec.items[i];
+    var key = cat.id + ':' + sec.title + ':' + i;
+    var hasDetails = !!(item.ingredients || item.kcal || item.allergens);
+    var open = openDetails[key] != null ? openDetails[key] : false;
+
+    var details = el('div', { class: 'details' }, [
+      field('Ingrediente', item, 'ingredients', { multiline: true, hint: 'Alergenii pusi intre stelute apar ingrosati pe site, de ex. *lapte*' }),
+      el('div', { class: 'nutri' }, [
+        field('kcal', item, 'kcal', { placeholder: '256', inputmode: 'decimal' }),
+        field('kcal la', item, 'per', { placeholder: '100g sau 100ml' }),
+        field('Proteine', item, 'protein', { placeholder: '11g' }),
+        field('Grasimi', item, 'fat', { placeholder: '0.8g' }),
+        field('Carbohidrati', item, 'carbs', { placeholder: '50g' }),
+      ]),
+      field('Alergeni', item, 'allergens', { placeholder: 'Contine gluten, lapte' }),
+    ]);
+    details.hidden = !open;
+
+    var confirmBox = el('span', { hidden: true }, [
+      el('span', { class: 'confirm', text: 'Stergi produsul? ' }),
+      el('button', { class: 'btn ghost danger', type: 'button', text: 'Da, sterge', onclick: function () {
+        sec.items.splice(i, 1); markDirty(); renderTabs(); renderEditor();
+      } }),
+      el('button', { class: 'btn ghost', type: 'button', text: 'Nu', onclick: function () { confirmBox.hidden = true; delBtn.hidden = false; } }),
+    ]);
+    var delBtn = el('button', { class: 'btn ghost danger', type: 'button', text: 'Sterge', onclick: function () { confirmBox.hidden = false; delBtn.hidden = true; } });
+
+    // Closed: say what opens (and whether there's anything yet); open: say how to close it.
+    function toggleLabel(isOpen) {
+      if (isOpen) return '▾ Ascunde detaliile';
+      return hasDetails ? '▸ Detalii: ingrediente si nutritie' : '+ Adauga ingrediente si nutritie';
+    }
+    var toggle = el('button', {
+      class: 'btn ghost toggle', type: 'button', 'aria-expanded': String(open),
+      text: toggleLabel(open),
+      onclick: function () {
+        openDetails[key] = details.hidden;
+        details.hidden = !details.hidden;
+        toggle.setAttribute('aria-expanded', String(!details.hidden));
+        toggle.textContent = toggleLabel(!details.hidden);
+      },
+    });
+
+    var card = el('div', { class: 'product' }, [
+      el('div', { class: 'product-main' }, [
+        field('Produs', item, 'name', { cls: 'name', placeholder: 'Numele produsului' }),
+        field('Pret (lei)', item, 'price', { placeholder: '9,50', inputmode: 'decimal', validate: priceOk }),
+        field('Cantitate', item, 'qty', { placeholder: '100 g' }),
+      ]),
+      el('div', { class: 'product-actions' }, [
+        toggle,
+        el('span', { class: 'spacer' }),
+        el('button', { class: 'btn ghost', type: 'button', title: 'Muta mai sus', 'aria-label': 'Muta mai sus', 'data-dir': '-1', text: '↑', disabled: i === 0, onclick: function () { move(sec.items, i, -1); } }),
+        el('button', { class: 'btn ghost', type: 'button', title: 'Muta mai jos', 'aria-label': 'Muta mai jos', 'data-dir': '1', text: '↓', disabled: i === sec.items.length - 1, onclick: function () { move(sec.items, i, 1); } }),
+        delBtn, confirmBox,
+      ]),
+      details,
+    ]);
+    card.__obj = item;
+    return card;
+  }
+
+  function renderEditor() {
+    var cat = menu.categories[current];
+    var root = $('editor');
+    root.innerHTML = '';
+    var grouped = cat.style !== 'full';
+
+    cat.sections.forEach(function (sec, si) {
+      var box = el('div', { class: 'section' });
+      box.__obj = sec;
+      if (grouped) {
+        var head = el('div', { class: 'section-head' }, [
+          field('Sectiune', sec, 'title', { placeholder: 'ex. Cafea' }),
+          el('button', { class: 'btn ghost', type: 'button', title: 'Muta sectiunea mai sus', 'aria-label': 'Muta sectiunea mai sus', 'data-dir': '-1', text: '↑', disabled: si === 0, onclick: function () { move(cat.sections, si, -1); } }),
+          el('button', { class: 'btn ghost', type: 'button', title: 'Muta sectiunea mai jos', 'aria-label': 'Muta sectiunea mai jos', 'data-dir': '1', text: '↓', disabled: si === cat.sections.length - 1, onclick: function () { move(cat.sections, si, 1); } }),
+          sec.items.length ? null : el('button', { class: 'btn ghost danger', type: 'button', text: 'Sterge sectiunea', onclick: function () {
+            cat.sections.splice(si, 1); markDirty(); renderEditor();
+          } }),
+        ]);
+        box.appendChild(head);
+        if (sec.promoHtml) box.appendChild(el('p', { class: 'promo-note', text: 'Sectiunea are si caseta de promotie de pe site; ramane neschimbata.' }));
+      }
+      sec.items.forEach(function (_, i) { box.appendChild(productCard(cat, sec, i)); });
+      box.appendChild(el('button', { class: 'btn add', type: 'button', text: '+ Adauga produs' + (grouped && sec.title ? ' la ' + sec.title : ''), onclick: function () {
+        sec.items.push(blankItem()); markDirty(); renderTabs(); renderEditor();
+        var names = box.ownerDocument.querySelectorAll('.section')[si].querySelectorAll('.product .name input');
+        var last = names[names.length - 1];
+        if (last) { last.focus(); last.scrollIntoView({ block: 'center' }); }
+      } }));
+      root.appendChild(box);
+    });
+
+    if (grouped) {
+      root.appendChild(el('button', { class: 'btn add', type: 'button', text: '+ Sectiune noua', onclick: function () {
+        cat.sections.push({ title: '', promoHtml: null, items: [blankItem()] }); markDirty(); renderTabs(); renderEditor();
+      } }));
+    }
+  }
+
+  // ---------- save ----------
+  function problems() {
+    var out = [];
+    menu.categories.forEach(function (cat) {
+      cat.sections.forEach(function (sec) {
+        sec.items.forEach(function (it) {
+          var name = (it.name || '').trim();
+          if (!name) out.push(cat.name + ': un produs nu are nume');
+          if (!priceOk(it.price || '')) out.push(cat.name + ' / ' + (name || 'produs fara nume') + ': pretul trebuie sa fie doar cifre, de ex. 9,50');
+        });
+      });
+    });
+    return out;
+  }
+
+  $('saveBtn').addEventListener('click', function () {
+    var p = problems();
+    if (p.length) { setStatus(p.slice(0, 5).join('\n'), 'err'); return; }
+    saving = true;
+    $('saveBtn').disabled = true;
+    setStatus('Se salveaza...');
+    api('POST', '/api/menu', { menu: menu, baseSha: baseSha }).then(function (d) {
+      baseSha = d.sha; dirty = false;
+      setStatus(d.unchanged ? 'Nu era nimic de salvat.' : 'Salvat. Site-ul se actualizeaza in aproximativ un minut.', 'ok');
+    }).catch(function (err) {
+      setStatus(err.message, 'err');
+    }).then(function () {
+      saving = false;
+      $('saveBtn').disabled = !dirty;
+    });
+  });
+
+  window.addEventListener('beforeunload', function (e) {
+    if (dirty) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  if (token) start();
+})();
+</script>
+</body>
+</html>

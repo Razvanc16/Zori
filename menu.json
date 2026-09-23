@@ -1,0 +1,1274 @@
+{
+  "categories": [
+    {
+      "id": "paine",
+      "name": "Paine",
+      "style": "full",
+      "sections": [
+        {
+          "title": null,
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Painea casei Zori",
+              "price": "10",
+              "qty": "400 g",
+              "ingredients": "*Faina de grau*, maia (*faina de grau*, apa), apa, sare.",
+              "kcal": "256",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "0.8g",
+              "carbs": "50g",
+              "allergens": "Contine gluten"
+            },
+            {
+              "name": "Paine alba cu ceapa",
+              "price": "20",
+              "qty": "400 g",
+              "ingredients": "*Faina de grau*, maia (*faina de grau*, apa), apa, fulgi de ceapa, sare.",
+              "kcal": "268",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "0.99g",
+              "carbs": "51g",
+              "allergens": "Contine gluten"
+            },
+            {
+              "name": "Paine alba cu seminte",
+              "price": "20",
+              "qty": "500 g",
+              "ingredients": "*Faina de grau*, maia (*faina de grau*, apa), seminte de in, mei, *susan* si mac, apa, sare.",
+              "kcal": "258",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "0.99g",
+              "carbs": "50g",
+              "allergens": "Contine gluten, susan"
+            },
+            {
+              "name": "Paine alba cu turmeric si susan",
+              "price": "20",
+              "qty": "500 g",
+              "ingredients": "*Faina de grau*, maia (*faina de grau*, apa), turmeric pudra, *susan* negru, sare.",
+              "kcal": "266",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "0.99g",
+              "carbs": "50g",
+              "allergens": "Contine gluten, susan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "patiserie",
+      "name": "Patiserie",
+      "style": "full",
+      "sections": [
+        {
+          "title": null,
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Croissant cu unt",
+              "price": "8",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, apa, sare, *ou*.",
+              "kcal": "400",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "26g",
+              "carbs": "35g",
+              "allergens": "Contine gluten, lapte, ou"
+            },
+            {
+              "name": "Patiserie cu ciocolata",
+              "price": "10",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, baton ciocolata (cacao, zahar, unt de cacao, *alune*, lecitina de *soia*, aroma naturala), apa, sare, *ou*.",
+              "kcal": "400",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "28g",
+              "carbs": "40g",
+              "allergens": "Contine gluten, lapte, ou, alune, soia"
+            },
+            {
+              "name": "Melc cu vanilie si stafide",
+              "price": "12",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, crema vanilie (*lapte*, zahar, *ou*, amidon din cartof, aroma naturala), stafide, apa, sare, *ou*.",
+              "kcal": "420",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "28g",
+              "carbs": "40g",
+              "allergens": "Contine gluten, lapte, ou"
+            },
+            {
+              "name": "Patiserie cu crema",
+              "price": "15",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, crema (*lapte*, zahar, *ou*, ciocolata alba, lecitina de *soia*), frisca, piure de fructe, apa, sare, *ou*.",
+              "kcal": "410",
+              "per": "100g",
+              "protein": "11g",
+              "fat": "29g",
+              "carbs": "39g",
+              "allergens": "Contine gluten, lapte, ou, soia"
+            },
+            {
+              "name": "Biscuiti cu unt si cacao",
+              "price": "9,5",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, cacao, *ou*.",
+              "kcal": "480",
+              "per": "100g",
+              "protein": "6g",
+              "fat": "24g",
+              "carbs": "60g",
+              "allergens": "Contine gluten, lapte, ou"
+            },
+            {
+              "name": "Biscuiti cu unt si alune de padure",
+              "price": "9,5",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, *alune* de padure, *ou*.",
+              "kcal": "490",
+              "per": "100g",
+              "protein": "7g",
+              "fat": "27g",
+              "carbs": "55g",
+              "allergens": "Contine gluten, lapte, ou, alune"
+            },
+            {
+              "name": "Cornulete cu nuca si gem",
+              "price": "9,5",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, *nuca*, gem de fructe, *ou*.",
+              "kcal": "460",
+              "per": "100g",
+              "protein": "6g",
+              "fat": "22g",
+              "carbs": "58g",
+              "allergens": "Contine gluten, lapte, ou, nuci"
+            },
+            {
+              "name": "Fursecuri cu unt si stafide",
+              "price": "9,5",
+              "qty": "100 g",
+              "ingredients": "*Faina de grau*, *unt*, zahar, stafide, *ou*.",
+              "kcal": "440",
+              "per": "100g",
+              "protein": "5g",
+              "fat": "20g",
+              "carbs": "60g",
+              "allergens": "Contine gluten, lapte, ou"
+            },
+            {
+              "name": "Pricomigdale",
+              "price": "9,5",
+              "qty": "100 g",
+              "ingredients": "Albus de *ou*, zahar, *migdale*.",
+              "kcal": "420",
+              "per": "100g",
+              "protein": "9g",
+              "fat": "18g",
+              "carbs": "55g",
+              "allergens": "Contine ou, migdale"
+            },
+            {
+              "name": "Macarons",
+              "price": "6,50",
+              "qty": "15 g/buc",
+              "ingredients": "*Migdale* pudra, zahar, albus de *ou*, *frisca*, ciocolata (cacao, unt de cacao, lecitina de *soia*), piure de fructe, arome.",
+              "kcal": "390",
+              "per": "100g",
+              "protein": "10g",
+              "fat": "28g",
+              "carbs": "55g",
+              "allergens": "Contine migdale, ou, lapte, soia"
+            },
+            {
+              "name": "Chec cu citrice",
+              "price": "6",
+              "qty": "50 g/felie",
+              "ingredients": "*Faina de grau*, *unt*, zahar, *migdale* pudra, *ou*, coaja de portocala confiata, suc de portocale, sare.",
+              "kcal": "410",
+              "per": "100g",
+              "protein": "9g",
+              "fat": "25g",
+              "carbs": "39g",
+              "allergens": "Contine gluten, lapte, ou, migdale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bauturi",
+      "name": "Bauturi",
+      "style": "compact",
+      "sections": [
+        {
+          "title": "Cafea",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Espresso",
+              "price": "9",
+              "qty": "20 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, apa.",
+              "kcal": "5",
+              "per": "100ml",
+              "protein": "0.5g",
+              "fat": "0g",
+              "carbs": "1g",
+              "allergens": ""
+            },
+            {
+              "name": "Espresso dublu",
+              "price": "10",
+              "qty": "40 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, apa.",
+              "kcal": "5",
+              "per": "100ml",
+              "protein": "0.5g",
+              "fat": "0g",
+              "carbs": "1g",
+              "allergens": ""
+            },
+            {
+              "name": "Americano",
+              "price": "9",
+              "qty": "90 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, apa.",
+              "kcal": "2",
+              "per": "100ml",
+              "protein": "0.2g",
+              "fat": "0g",
+              "carbs": "0.4g",
+              "allergens": ""
+            },
+            {
+              "name": "Cortado",
+              "price": "10",
+              "qty": "90 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "38",
+              "per": "100ml",
+              "protein": "2g",
+              "fat": "2.1g",
+              "carbs": "3.1g",
+              "allergens": ""
+            },
+            {
+              "name": "Cappuccino",
+              "price": "15",
+              "qty": "200 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "53",
+              "per": "100ml",
+              "protein": "2.7g",
+              "fat": "3g",
+              "carbs": "4g",
+              "allergens": ""
+            },
+            {
+              "name": "Flat White",
+              "price": "16",
+              "qty": "230 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "55",
+              "per": "100ml",
+              "protein": "2.7g",
+              "fat": "3.1g",
+              "carbs": "4.1g",
+              "allergens": ""
+            },
+            {
+              "name": "Latte",
+              "price": "16",
+              "qty": "230 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "55",
+              "per": "100ml",
+              "protein": "2.7g",
+              "fat": "3.1g",
+              "carbs": "4.1g",
+              "allergens": ""
+            },
+            {
+              "name": "Ice Latte",
+              "price": "17",
+              "qty": "250 ml",
+              "ingredients": "Cafea de specialitate Brewzeus, *lapte* Napolact 3.7% grasime (nepasteurizat), gheata.",
+              "kcal": "40",
+              "per": "100ml",
+              "protein": "2g",
+              "fat": "2.2g",
+              "carbs": "3g",
+              "allergens": ""
+            },
+            {
+              "name": "Matcha Latte",
+              "price": "30",
+              "qty": "230 ml",
+              "ingredients": "Pudra de matcha, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "65",
+              "per": "100ml",
+              "protein": "3.3g",
+              "fat": "3.6g",
+              "carbs": "4.6g",
+              "allergens": ""
+            },
+            {
+              "name": "Matcha Latte Iced",
+              "price": "30",
+              "qty": "250 ml",
+              "ingredients": "Pudra de matcha, *lapte* Napolact 3.7% grasime (nepasteurizat), gheata.",
+              "kcal": "50",
+              "per": "100ml",
+              "protein": "2.5g",
+              "fat": "2.7g",
+              "carbs": "3.5g",
+              "allergens": ""
+            },
+            {
+              "name": "Ube Latte",
+              "price": "20",
+              "qty": "230 ml",
+              "ingredients": "Pudra de ube, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "76",
+              "per": "100ml",
+              "protein": "3.1g",
+              "fat": "3.5g",
+              "carbs": "7.9g",
+              "allergens": ""
+            },
+            {
+              "name": "Choco Chai Latte",
+              "price": "20",
+              "qty": "230 ml",
+              "ingredients": "Cacao, condimente chai, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "66",
+              "per": "100ml",
+              "protein": "3.4g",
+              "fat": "3.8g",
+              "carbs": "4.6g",
+              "allergens": ""
+            },
+            {
+              "name": "Ciocolata calda cu lapte",
+              "price": "20",
+              "qty": "230 ml",
+              "ingredients": "Cacao, *lapte* Napolact 3.7% grasime (nepasteurizat).",
+              "kcal": "76",
+              "per": "100ml",
+              "protein": "4.3g",
+              "fat": "4.4g",
+              "carbs": "5.1g",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Racoritoare",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Pepsi",
+              "price": "9",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Pepsi-Cola",
+              "price": "9",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Pepsi Twist",
+              "price": "9",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "7Up",
+              "price": "9",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Mirinda",
+              "price": "9",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Evervess",
+              "price": "9",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Ros Solis grepfrut",
+              "price": "12",
+              "qty": "200 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Ceaiuri",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Ceai fructe de padure",
+              "price": "15",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Ceai verde cu mango",
+              "price": "15",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Apa",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Aqua Carpatica plata mica",
+              "price": "8",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Aqua Carpatica plata mare",
+              "price": "15",
+              "qty": "750 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Aqua Carpatica minerala mica",
+              "price": "8",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Aqua Carpatica minerala mare",
+              "price": "15",
+              "qty": "750 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Delicii de Vaideeni",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Suc natural de mere",
+              "price": "9",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Suc natural de mere si visine",
+              "price": "9",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Suc natural de mere si mure",
+              "price": "9",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Suc natural de mere si portocale",
+              "price": "9",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Suc natural de mere si piersici",
+              "price": "9",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Limonada de zmeura",
+              "price": "12",
+              "qty": "500 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Limonada de capsuni",
+              "price": "12",
+              "qty": "500 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Sucuri naturale",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Suc de portocale 100%",
+              "price": "14",
+              "qty": "300 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Limonade Din Eden",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Limonada cu zmeura",
+              "price": "15",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Limonada cu capsuni",
+              "price": "15",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Limonada cu menta si soc",
+              "price": "15",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Alte bauturi artizanale",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Socata artizanala",
+              "price": "15",
+              "qty": "275 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Limonada zmeura vrac",
+              "price": "15",
+              "qty": "240 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Bere",
+          "promoHtml": "  <div class=\"promo-card\">\n    <p class=\"promo-title\">Comanda 2 Bucur la draught</p>\n    <p class=\"promo-text\">Spune parola <strong>\"NEGRABIT\"</strong> si al treilea e din partea noastra!</p>\n    <p class=\"promo-fine\">*In limita stocului disponibil in locatie. Consuma responsabil, 18+.</p>\n  </div>",
+          "items": [
+            {
+              "name": "Bucur la draft",
+              "price": "15",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Somersby mure",
+              "price": "16",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Kirin Ichiban",
+              "price": "24",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "1664 Blanc",
+              "price": "17",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Guinness",
+              "price": "22",
+              "qty": "440 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Bucur blonda",
+              "price": "13",
+              "qty": "350 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Bucur bruna",
+              "price": "14",
+              "qty": "350 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Tuborg",
+              "price": "14",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Carlsberg 0%",
+              "price": "15",
+              "qty": "330 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Vin si Prosecco",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Bottega Gold Prosecco",
+              "price": "41",
+              "qty": "200 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Vin Imprimat rose",
+              "price": "19,99",
+              "qty": "187 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Vin Imprimat sauvignon blanc",
+              "price": "19,99",
+              "qty": "187 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Vin Imprimat rosu",
+              "price": "19,99",
+              "qty": "187 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shop",
+      "name": "Shop",
+      "style": "compact",
+      "sections": [
+        {
+          "title": "Ciuperci uscate",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Mix ciuperci uscate (galbiori, trompeta neagra, hribi)",
+              "price": "19,99",
+              "qty": "30 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Hribi uscati",
+              "price": "19,99",
+              "qty": "30 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Galbiori uscati",
+              "price": "19,99",
+              "qty": "30 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Dulceturi Delicii de Vaideeni",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Zacusca de vinete",
+              "price": "19",
+              "qty": "320 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Dulceata de zmeura",
+              "price": "20,90",
+              "qty": "370 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Dulceata de afine",
+              "price": "20,90",
+              "qty": "370 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Gem de visine",
+              "price": "20,90",
+              "qty": "320 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Magiun de prune",
+              "price": "20,90",
+              "qty": "320 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Cafea si matcha",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Matcha ecologica Niavis",
+              "price": "39",
+              "qty": "60 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Cafea boabe single origin Guatemala",
+              "price": "59",
+              "qty": "250 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Cafea boabe blend Radio Guerrilla (Costa Rica, Brazilia, Etiopia)",
+              "price": "59",
+              "qty": "250 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Cafea boabe single origin Brazilia",
+              "price": "59",
+              "qty": "250 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Lactate vegetale",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Lapte de ovaz ROA",
+              "price": "24,90",
+              "qty": "1 l",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Ulei si otet",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Otet balsamic de Modena IGP",
+              "price": "39,90",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Ulei masline extravirgin Orison",
+              "price": "49,90",
+              "qty": "500 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Ulei extravirgin de masline Kalamata Aenaon",
+              "price": "49",
+              "qty": "1 l",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Ulei masline extravirgin cu trufe albe Monini",
+              "price": "49,90",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Ulei de trufe Andrea Milano",
+              "price": "19,90",
+              "qty": "150 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Siropuri Din Eden",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Sirop de menta",
+              "price": "25",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sirop de flori de soc",
+              "price": "25",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sirop de zmeura",
+              "price": "25",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sirop de catina",
+              "price": "25",
+              "qty": "250 ml",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        },
+        {
+          "title": "Sare",
+          "promoHtml": null,
+          "items": [
+            {
+              "name": "Sare de mare Maldon",
+              "price": "32",
+              "qty": "55 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sare de mare cu chilli Maldon",
+              "price": "24,90",
+              "qty": "100 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sare de mare afumata Maldon",
+              "price": "24,90",
+              "qty": "100 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sare neagra de Himalaya Niavis",
+              "price": "19",
+              "qty": "250 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            },
+            {
+              "name": "Sare celtica Good Routine",
+              "price": "17",
+              "qty": "250 g",
+              "ingredients": "",
+              "kcal": "",
+              "per": "",
+              "protein": "",
+              "fat": "",
+              "carbs": "",
+              "allergens": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
