@@ -450,7 +450,7 @@
               "allergens": ""
             },
             {
-              "name": "Ros Solis grepfrut",
+              "name": "Ros Solis Grepfrut",
               "price": "12",
               "qty": "200 ml",
               "ingredients": "",
@@ -510,9 +510,9 @@
               "allergens": ""
             },
             {
-              "name": "Aqua Carpatica plata mare",
-              "price": "15",
-              "qty": "750 ml",
+              "name": "Aqua Carpatica minerala mica",
+              "price": "8",
+              "qty": "330 ml",
               "ingredients": "",
               "kcal": "",
               "per": "",
@@ -522,9 +522,9 @@
               "allergens": ""
             },
             {
-              "name": "Aqua Carpatica minerala mica",
-              "price": "8",
-              "qty": "330 ml",
+              "name": "Aqua Carpatica plata mare",
+              "price": "15",
+              "qty": "750 ml",
               "ingredients": "",
               "kcal": "",
               "per": "",
