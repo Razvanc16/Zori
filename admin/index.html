@@ -112,8 +112,6 @@
   .hours-intro { color: var(--ink-soft); margin: 18px 0 4px; }
   .day { display: grid; grid-template-columns: 1fr 120px 120px; gap: 8px; align-items: end; }
   .day .day-name { font-weight: 700; font-size: 16px; }
-  .day .closed { display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 600; color: var(--ink-soft); grid-column: 1 / -1; cursor: pointer; }
-  .day .closed input { width: 18px; height: 18px; margin: 0; accent-color: var(--terracotta); }
 
   @media (max-width: 560px) {
     .day { grid-template-columns: 1fr 1fr; }
@@ -257,18 +255,10 @@
     menu.hours.forEach(function (h) {
       var opens = field('Deschide', h, 'opens', { validate: timeOk });
       var closes = field('Inchide', h, 'closes', { validate: timeOk });
-      [opens, closes].forEach(function (f) { var i = f.querySelector('input'); i.type = 'time'; i.disabled = !!h.closed; });
-      var box = el('input', { type: 'checkbox' });
-      box.checked = !!h.closed;
-      box.addEventListener('change', function () {
-        h.closed = box.checked;
-        opens.querySelector('input').disabled = closes.querySelector('input').disabled = h.closed;
-        markDirty();
-      });
+      [opens, closes].forEach(function (f) { f.querySelector('input').type = 'time'; });
       root.appendChild(el('div', { class: 'product day' }, [
         el('div', { class: 'day-name', text: h.label }),
         opens, closes,
-        el('label', { class: 'closed' }, [box, 'Inchis toata ziua']),
       ]));
     });
   }
