@@ -1270,5 +1270,41 @@
         }
       ]
     }
+  ],
+  "hours": [
+    {
+      "id": "weekdays",
+      "label": "Luni – Vineri",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "19:00",
+      "closed": false
+    },
+    {
+      "id": "saturday",
+      "label": "Sambata",
+      "days": [
+        "Saturday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00",
+      "closed": false
+    },
+    {
+      "id": "sunday",
+      "label": "Duminica",
+      "days": [
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00",
+      "closed": false
+    }
   ]
 }

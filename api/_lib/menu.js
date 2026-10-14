@@ -76,8 +76,38 @@ function renderCategory(cat) {
   return parts.join('\n') + '\n';
 }
 
+// Footer rows between <!-- ZORI-HOURS --> markers, plus the openingHoursSpecification
+// in the JSON-LD block that Google reads. Closed days are left out of the JSON-LD.
+function renderHours(hours) {
+  return hours
+    .map((h) => `      <div class="hours-row"><span>${esc(h.label)}</span><span>${h.closed ? 'Inchis' : `${h.opens} – ${h.closes}`}</span></div>\n`)
+    .join('');
+}
+
+function hoursSpec(hours) {
+  const rows = hours.filter((h) => !h.closed).map((h) => {
+    const day = h.days.length === 1 ? JSON.stringify(h.days[0]) : JSON.stringify(h.days);
+    return `    { "@type": "OpeningHoursSpecification", "dayOfWeek": ${day}, "opens": "${h.opens}", "closes": "${h.closes}" }`;
+  });
+  return '[\n' + rows.join(',\n') + '\n  ]';
+}
+
+const SPEC_RE = /("openingHoursSpecification": )\[[\s\S]*?\n  \]/;
+
+function applyHours(html, hours) {
+  const open = '<!-- ZORI-HOURS -->';
+  const close = '<!-- /ZORI-HOURS -->';
+  const a = html.indexOf(open);
+  const b = html.indexOf(close);
+  if (a < 0 || b < a) throw new Error('Lipseste zona de program in index.html');
+  if (!SPEC_RE.test(html)) throw new Error('Lipseste programul pentru Google in index.html');
+  html = html.slice(0, a + open.length) + '\n' + renderHours(hours) + '      ' + html.slice(b);
+  return html.replace(SPEC_RE, (_, key) => key + hoursSpec(hours));
+}
+
 function applyToIndex(indexHtml, menu) {
   let html = indexHtml;
+  if (menu.hours) html = applyHours(html, menu.hours);
   for (const cat of menu.categories) {
     const open = `<!-- ZORI-MENU:${cat.id} -->`;
     const close = `<!-- /ZORI-MENU:${cat.id} -->`;
@@ -94,6 +124,7 @@ const INVISIBLE = [[0x00, 0x1f], [0x7f, 0x9f], [0x200b, 0x200f], [0x202a, 0x202e
 const stripInvisible = (s) =>
   Array.from(s, (ch) => (INVISIBLE.some(([a, b]) => ch.codePointAt(0) >= a && ch.codePointAt(0) <= b) ? ' ' : ch)).join('');
 const MAX_SECTIONS = 40;
+const TIME_RE = /^([01]\d|2[0-3]):[0-5]\d$/;
 const MAX_ITEMS_PER_SECTION = 150;
 
 function str(v, max, field, errors, required) {
@@ -143,6 +174,21 @@ function validate(input, current) {
       return { title, promoHtml: (title && promos.get(title)) || null, items };
     });
     out.categories.push({ id: base.id, name: base.name, style: base.style, sections });
+  }
+  // Rows, labels and days come from the current menu; only the times and "closed" are editable.
+  // An admin tab opened before hours existed sends none, so the current hours are kept.
+  if (current.hours) {
+    out.hours = current.hours.map((base) => {
+      const h = (Array.isArray(input.hours) && input.hours.find((x) => x && x.id === base.id)) || base;
+      const closed = h.closed === true;
+      const opens = typeof h.opens === 'string' ? h.opens.trim() : '';
+      const closes = typeof h.closes === 'string' ? h.closes.trim() : '';
+      if (!closed) {
+        if (!TIME_RE.test(opens) || !TIME_RE.test(closes)) errors.push(`Program / ${base.label}: scrie ora ca 09:00`);
+        else if (opens >= closes) errors.push(`Program / ${base.label}: ora de inchidere trebuie sa fie dupa cea de deschidere`);
+      }
+      return { id: base.id, label: base.label, days: base.days, opens: closed && !TIME_RE.test(opens) ? base.opens : opens, closes: closed && !TIME_RE.test(closes) ? base.closes : closes, closed };
+    });
   }
   if (errors.length) {
     const e = new Error(errors.slice(0, 10).join('\n'));

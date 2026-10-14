@@ -84,7 +84,7 @@
   .btn.add { width: 100%; border-style: dashed; background: none; color: var(--ink-soft); margin-top: 8px; }
 
   label.f { display: grid; gap: 3px; font-size: 12px; font-weight: 600; color: var(--ink-soft); }
-  input[type=text], input[type=password], textarea {
+  input[type=text], input[type=password], input[type=time], textarea {
     width: 100%; background: #fff; border: 1px solid var(--rule); border-radius: 6px;
     padding: 8px 10px; font-size: 15px; font-weight: 400; color: var(--ink);
   }
@@ -108,7 +108,16 @@
   .hint { font-size: 12px; color: var(--ink-soft); font-weight: 400; }
   .confirm { font-size: 13px; color: var(--err); font-weight: 600; }
 
+  /* opening hours */
+  .hours-intro { color: var(--ink-soft); margin: 18px 0 4px; }
+  .day { display: grid; grid-template-columns: 1fr 120px 120px; gap: 8px; align-items: end; }
+  .day .day-name { font-weight: 700; font-size: 16px; }
+  .day .closed { display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 600; color: var(--ink-soft); grid-column: 1 / -1; cursor: pointer; }
+  .day .closed input { width: 18px; height: 18px; margin: 0; accent-color: var(--terracotta); }
+
   @media (max-width: 560px) {
+    .day { grid-template-columns: 1fr 1fr; }
+    .day .day-name { grid-column: 1 / -1; }
     .product-main { grid-template-columns: 1fr 1fr; }
     .product-main .name { grid-column: 1 / -1; }
     .nutri { grid-template-columns: repeat(2, 1fr); }
@@ -233,6 +242,35 @@
         onclick: function () { current = i; renderTabs(); renderEditor(); window.scrollTo(0, 0); },
       }, [cat.name, el('span', { class: 'n', text: String(count(cat)) })]));
     });
+    if (menu.hours) {
+      t.appendChild(el('button', {
+        class: 'tab', type: 'button', role: 'tab', 'aria-selected': current === 'hours' ? 'true' : 'false',
+        onclick: function () { current = 'hours'; renderTabs(); renderEditor(); window.scrollTo(0, 0); },
+      }, ['Program']));
+    }
+  }
+
+  function renderHours() {
+    var root = $('editor');
+    root.innerHTML = '';
+    root.appendChild(el('p', { class: 'hours-intro', text: 'Programul apare jos pe site si in Google.' }));
+    menu.hours.forEach(function (h) {
+      var opens = field('Deschide', h, 'opens', { validate: timeOk });
+      var closes = field('Inchide', h, 'closes', { validate: timeOk });
+      [opens, closes].forEach(function (f) { var i = f.querySelector('input'); i.type = 'time'; i.disabled = !!h.closed; });
+      var box = el('input', { type: 'checkbox' });
+      box.checked = !!h.closed;
+      box.addEventListener('change', function () {
+        h.closed = box.checked;
+        opens.querySelector('input').disabled = closes.querySelector('input').disabled = h.closed;
+        markDirty();
+      });
+      root.appendChild(el('div', { class: 'product day' }, [
+        el('div', { class: 'day-name', text: h.label }),
+        opens, closes,
+        el('label', { class: 'closed' }, [box, 'Inchis toata ziua']),
+      ]));
+    });
   }
 
   function blankItem() {
@@ -256,6 +294,7 @@
     return el('label', { class: 'f' + (opts.cls ? ' ' + opts.cls : '') }, [label, input, opts.hint ? el('span', { class: 'hint', text: opts.hint }) : null]);
   }
 
+  var timeOk = function (v) { return /^([01]\d|2[0-3]):[0-5]\d$/.test(v); };
   var priceOk = function (v) { return /^\s*\d{1,4}([.,]\d{1,2})?\s*$/.test(v); };
 
   // Cards and sections carry their data object as node.__obj so positions can be
@@ -384,6 +423,7 @@
   }
 
   function renderEditor() {
+    if (current === 'hours') return renderHours();
     var cat = menu.categories[current];
     var root = $('editor');
     root.innerHTML = '';
@@ -432,6 +472,11 @@
           if (!priceOk(it.price || '')) out.push(cat.name + ' / ' + (name || 'produs fara nume') + ': pretul trebuie sa fie doar cifre, de ex. 9,50');
         });
       });
+    });
+    (menu.hours || []).forEach(function (h) {
+      if (h.closed) return;
+      if (!timeOk(h.opens || '') || !timeOk(h.closes || '')) out.push('Program / ' + h.label + ': completeaza ora de deschidere si de inchidere');
+      else if (h.opens >= h.closes) out.push('Program / ' + h.label + ': ora de inchidere trebuie sa fie dupa cea de deschidere');
     });
     return out;
   }

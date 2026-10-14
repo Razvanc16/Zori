@@ -516,9 +516,16 @@
     width: 100px;
     height: auto;
   }
-  footer .hours-row { display: flex; gap: 10px; margin-top: 2px; }
+  footer .hours-row { display: flex; justify-content: space-between; gap: 14px; margin-top: 2px; }
   footer .hours-row span:first-child { min-width: 10ch; text-align: left; }
-  footer .hours-row span:last-child { text-align: right; }
+  footer .hours-row span:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  /* Narrow phones: hours on top as a full-width list, address and phone centered below. */
+  @media (max-width: 440px) {
+    footer .footer-cols { flex-direction: column-reverse; align-items: stretch; gap: 20px; }
+    footer .footer-cols .col-left { text-align: center; }
+    footer .footer-cols .col-right { width: 100%; max-width: 280px; margin: 0 auto; }
+    footer .hours-row + .hours-row { margin-top: 6px; }
+  }
 </style>
 </head>
 <body>
@@ -1045,9 +1052,11 @@
       <div><a class="footer-link" href="tel:0736012318">0736 012 318</a></div>
     </div>
     <div class="col-right">
+      <!-- ZORI-HOURS -->
       <div class="hours-row"><span>Luni – Vineri</span><span>08:00 – 19:00</span></div>
       <div class="hours-row"><span>Sambata</span><span>09:00 – 17:00</span></div>
       <div class="hours-row"><span>Duminica</span><span>09:00 – 17:00</span></div>
+      <!-- /ZORI-HOURS -->
     </div>
   </div>
   <div class="legal-row">
